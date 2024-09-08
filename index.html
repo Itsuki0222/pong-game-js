@@ -7,7 +7,7 @@
                 text-align:center;
             }
             canvas {
-                background: #778899;
+                background: royalblue;
                 }
             #canvas-wrapper{
                 width:480px;
@@ -85,6 +85,14 @@
                 dy = -dy;
                 console.log('跳ね返り');
             }
+
+            if(y + dy + 40 > canvas.height-paddleHeight-ballRadius) {
+                if(x > paddleX && x < paddleX + paddleWidth) { // バーの範囲内だったら...
+                    dy = -dy;  // ボールを跳ね返す、上に
+                }
+            }
+
+            
             x += dx;  // dxずつ移動
             y += dy;  // dyずつ移動
 
@@ -104,7 +112,7 @@
                     paddleX = 0;
                 }
             }
-        }
+        }     
         setInterval(draw, 15);
 
         function hanekaeri() {
