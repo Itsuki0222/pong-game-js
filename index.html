@@ -26,7 +26,7 @@
         var ctx = canvas.getContext("2d");
         var ballRadius = 10;
         var x = canvas.width/2;
-        var y = canvas.height-30;
+        var y = canvas.height/2; 
         var dx = 2;
         var dy = -2;
 
@@ -90,6 +90,10 @@
                 if(x > paddleX && x < paddleX + paddleWidth) { // バーの範囲内だったら...
                     dy = -dy;  // ボールを跳ね返す、上に
                 }
+            } if(y + dy + 20 > canvas.height-paddleHeight-ballRadius) {
+                console.log("GameOver")
+                document.location.reload();
+                 clearInterval(interval);
             }
 
             
@@ -114,10 +118,6 @@
             }
         }     
         setInterval(draw, 15);
-
-        function hanekaeri() {
-            dy = - dy;
-        }
     </script>
 </body>
 </html>
