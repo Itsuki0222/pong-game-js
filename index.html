@@ -91,8 +91,6 @@
                     dy = -dy;  // ボールを跳ね返す、上に
                 }
             } if(y + dy + 20 > canvas.height-paddleHeight-ballRadius) {
-                console.log("GameOver")
-                document.location.reload();
                  clearInterval(interval);
             }
 
